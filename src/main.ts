@@ -10,12 +10,12 @@ import { NetworkService } from './app/core/network.service';
 bootstrapApplication(AppComponent, {
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    provideIonicAngular(),
+    provideRouter(routes, withPreloading(PreloadAllModules)),
     { provide: APP_INITIALIZER,
       deps: [NetworkService],
       multi: true,
-      useFactory: () => async (networkService: NetworkService) => await networkService.initalize()
-    },
-    provideIonicAngular(),
-    provideRouter(routes, withPreloading(PreloadAllModules)),
+      useFactory: (networkService: NetworkService) => async () => await networkService.initialize()
+    }
   ],
 });
