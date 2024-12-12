@@ -1,0 +1,7 @@
+{
+  "name": "cap-network-samsung",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
