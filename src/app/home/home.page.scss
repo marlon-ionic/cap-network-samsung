@@ -8,6 +8,20 @@
   transform: translateY(-50%);
 }
 
+section {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+
+  ion-text {
+    display: flex;
+    flex-flow: column;
+    gap: 0.5rem;
+  }
+}
+
 #container strong {
   font-size: 20px;
   line-height: 26px;

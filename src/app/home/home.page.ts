@@ -1,13 +1,19 @@
-import { Component } from '@angular/core';
-import { IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/angular/standalone';
+import { Component, inject } from '@angular/core';
+import { IonHeader, IonToolbar, IonTitle, IonContent, IonButton, IonText } from '@ionic/angular/standalone';
+import { NetworkService } from '../core/network.service';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
   standalone: true,
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent],
+  imports: [IonButton, IonHeader, IonText, IonToolbar, IonTitle, IonContent, AsyncPipe],
 })
 export class HomePage {
-  constructor() {}
+  private readonly networkService = inject(NetworkService);
+  connectionStatus$ = this.networkService.connectionStatus$;
+  constructor() {
+
+  }
 }
